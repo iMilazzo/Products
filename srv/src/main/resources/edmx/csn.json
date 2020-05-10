@@ -1,0 +1,62 @@
+{
+  "namespace": "my.app",
+  "definitions": {
+    "CatalogService": {
+      "@source": "srv/cat-service.cds",
+      "kind": "service"
+    },
+    "CatalogService.Products": {
+      "kind": "entity",
+      "@cds.persistence.name": "CATALOGSERVICE_PRODUCTS",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "my.app.Products"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ProductID": {
+          "@cds.persistence.name": "PRODUCTID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ProductName": {
+          "@cds.persistence.name": "PRODUCTNAME",
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "@cds.persistence.name": "UNITSINSTOCK",
+          "type": "cds.Integer"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "my.app.Products": {
+      "kind": "entity",
+      "@cds.persistence.name": "MY_APP_PRODUCTS",
+      "elements": {
+        "ProductID": {
+          "@cds.persistence.name": "PRODUCTID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ProductName": {
+          "@cds.persistence.name": "PRODUCTNAME",
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "@cds.persistence.name": "UNITSINSTOCK",
+          "type": "cds.Integer"
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.26.2"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}
